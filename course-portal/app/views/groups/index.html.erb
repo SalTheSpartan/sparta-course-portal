@@ -1,0 +1,17 @@
+<h1>Groups#index</h1>
+<p>Find me in app/views/groups/index.html.erb</p>
+
+<table>
+  <thead>
+    <td>Group Name</td>
+    <td>Start Date</td>
+  </thead>
+
+  <tbody>
+  <% @group.each do |group1| %>
+  <tr>
+    <td><p><%= group1.name %></p></td><td><p><%= group1.start_date %></p></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
