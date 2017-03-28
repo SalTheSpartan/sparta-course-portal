@@ -1,0 +1,20 @@
+<%= @group.name %>
+
+
+
+<h3>Current lessons</h3>
+<% @group.lessons.each do |lesson| %>
+  <p><%= lesson.title %>
+
+<% end %>
+
+<h3>Available Lessons</h3>
+
+
+<%= form_for @group, :html => {:multipart => true} do |f| %>
+    <p>Select Lessons to add</p>
+
+    <%= collection_check_boxes(:group, :lesson_ids, Lesson.all, :id, :title) %>
+
+    <%= f.submit %>
+<% end %>

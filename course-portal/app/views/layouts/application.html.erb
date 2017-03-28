@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to "Courses" , courses_index_path %>
+      <%= link_to "Groups" , groups_index_path %>
+      <%= link_to "Syllabi" , syllabi_index_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>

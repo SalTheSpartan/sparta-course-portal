@@ -4,11 +4,11 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.new(params.require(:course).permit(:name, :duration))
+    @course = Course.new(course_params)
 
     @course.save
     redirect_to "/"
-    
+
   end
 
   def new

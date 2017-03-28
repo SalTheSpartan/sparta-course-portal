@@ -1,0 +1,14 @@
+<h1>Syllabi#index</h1>
+<p>Find me in app/views/syllabi/index.html.erb</p>
+<%= link_to "Create New Lesson" , lessons_new_path %>
+<% @syllabi.each do |syllabus| %>
+
+<h2>Title: <%= syllabus.title %></h2><h3>Duration: <%= syllabus.duration %></h3>
+
+  <h3>Lessons</h3>
+  <% syllabus.lessons.each do |lesson| %>
+  <p><%= lesson.title %></p>
+  <% end %>
+
+
+<% end %>

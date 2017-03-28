@@ -4,7 +4,7 @@ class CreateGroups < ActiveRecord::Migration[5.0]
       t.text :name
       t.date :start_date
       t.date :end_date
-      t.integer :size
+      t.text :size
       t.references :course, foreign_key: true
 
       t.timestamps
