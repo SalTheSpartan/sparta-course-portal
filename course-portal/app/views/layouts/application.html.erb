@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CoursePortal</title>
+
+
+    <title>Sparta Course Portal</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
@@ -11,30 +13,49 @@
   </head>
 
   <body>
-    <section class="login-info">
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
 
-      <% if user_signed_in? %>
-      <%= current_user.email %>
-      <% end %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    </section>
-    <nav>
-      <%= link_to "Courses" , courses_path %>
-      <%= link_to "Groups" , groups_path %>
-      <%= link_to "Syllabi" , syllabi_index_path %>
-    </nav>
+    <header>
+      <img src="/logo.png" alt="">
+      <h1 class="main-header">Course Portal</h1>
+
+      <seciton id="pageHeader">
+          <section class="login-info">
+            <% if notice %>
+              <p class="alert alert-success"><%= notice %></p>
+            <% end %>
+            <% if alert %>
+              <p class="alert alert-danger"><%= alert %></p>
+            <% end %>
+
+            <% if user_signed_in? %>
+            <%= current_user.email %>
+            <% end %>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+
+
+
+          </section>
+
+    <% if current_user.try(:admin?) %>
+        <nav>
+          <%= link_to "Courses" , courses_path %>
+          <%= link_to "Groups" , groups_path %>
+          <%= link_to "Syllabi" , syllabi_index_path %>
+        </nav>
+      <%else%>
+        <nav>
+          <%= link_to "Groups" , groups_list_path %>
+        </nav>
+      <%end%>
+
+    </header>
     <div class="wrapper">
 
     <%= yield %>
 
     </div>
 
+    <footer>&copy; Copyright Sparta Global 2017</footer>
 
   </body>
 </html>

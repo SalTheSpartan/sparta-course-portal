@@ -1,3 +1,4 @@
+<h1>Syllabi</h1>
 
 <p>Create New Syllabus</p>
 
@@ -21,9 +22,9 @@
 
 <%= link_to "Create New Lesson" , new_lesson_path %>
 
-<table>
-  <thead>
-    <td>Title:</td><td>Duration:</td><td>Lessons</td>
+<table class="mdl-data-table mdl-js-data-table">
+  <thead class="mdl-data-table__cell--non-numeric">
+    <th>Title:</th><th>Duration:</th><th>Lessons</th>
   </thead>
 
   <tbody>
@@ -32,8 +33,8 @@
     <% @syllabi.each do |syllabus| %>
 
   <tr>
-    <td><%= syllabus.title %></td><td><%= syllabus.duration %></td>
-    <td>
+    <td class="mdl-data-table__cell--non-numeric"><%= syllabus.title %></td><td class="mdl-data-table__cell--non-numeric"><%= syllabus.duration %></td>
+    <td class="mdl-data-table__cell--non-numeric">
     <% syllabus.lessons.each do |lesson| %>
     <p><%= lesson.title %></p>
     <% end %>

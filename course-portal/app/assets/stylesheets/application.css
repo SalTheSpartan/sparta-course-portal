@@ -16,32 +16,83 @@
 
  */
 
- html {
-
+ header {
+  padding-left: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: #0B8EC8;
+  position: relative;
 
  }
 
+ .main-header{
+   display: inline-block;
+   padding-left: 2%;
+   font-family: Helvetica;
+   font-weight: 100;
+   font-size: 40px !important;
+   color: white;
+ }
+
  body {
+
    width: 60% !important;
    margin: 0 auto !important;
    -webkit-box-shadow: 0px 0px 43px 3px rgba(158,158,158,1);
 -moz-box-shadow: 0px 0px 43px 3px rgba(158,158,158,1);
 box-shadow: 0px 0px 43px 3px rgba(158,158,158,1);
+background-color: #DDE9EB;
  }
  nav {
    display: inline-block;
+   position: absolute;
+   bottom: 4px;
+ }
 
+ #pageHeader {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    right: 0;
+    text-align: right;
+    height: 100%;
  }
 
 .wrapper{
 border-top: grey 5px solid;
 margin: auto;
 width: 90%;
+padding-bottom: 10px;
 }
 section.login-info {
   float: right;
+  margin-right: 2%;
+  color: #DDE9EB;
 }
 
 h1 {
-  font-size: 40px !important;
+  color: #34BEEF;
+}
+
+footer {
+  background-color: #0B8EC8;
+  text-align: center;
+  color: white;
+  position:absolute;
+  bottom:0;
+  width: 60%;
+}
+
+a:link {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: blue;
 }

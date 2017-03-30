@@ -1,4 +1,7 @@
 class GroupsController < ApplicationController
+  before_action :verify_is_admin
+
+
   def index
     @group = Group.all
   end
@@ -58,5 +61,7 @@ class GroupsController < ApplicationController
     def lesson_params
       params.require(:group).permit(:id, :title, :lesson_ids => [])
     end
+
+
 
 end

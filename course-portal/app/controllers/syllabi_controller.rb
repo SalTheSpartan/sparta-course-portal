@@ -1,4 +1,6 @@
 class SyllabiController < ApplicationController
+  before_action :verify_is_admin
+
   def index
     @syllabi = Syllabus.all
     @syllabus = Syllabus.new

@@ -1,4 +1,4 @@
-<h1>Sparta Course Portal</h1>
+<h1>Courses</h1>
 <p>Find me in app/views/courses/index.html.erb</p>
 
 <%= form_for @course, html: {multipart: true } do |f| %>
@@ -19,12 +19,14 @@
   <thead class="mdl-data-table__cell--non-numeric">
     <td>Course Name</td>
     <td>Duration (Weeks)</td>
+    <td>Remove</td>
+
   </thead>
 
   <tbody>
   <% @courses.each do |course| %>
   <tr>
-    <td class="mdl-data-table__cell--non-numeric"><p><%= course.name %></p></td><td><p><%= course.duration %></p></td>
+    <td class="mdl-data-table__cell--non-numeric"><%= course.name %></td><td><%= course.duration %></td><td> <%= link_to "Delete" , course_path(course) , method: :delete %></td>
   </tr>
   <% end %>
   </tbody>
