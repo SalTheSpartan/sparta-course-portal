@@ -14,7 +14,7 @@
 <%= form_for @group, :html => {:multipart => true} do |f| %>
     <p>Select Lessons to add</p>
 
-    <%= collection_check_boxes(:group, :lesson_ids, Lesson.all, :id, :title) %>
+    <%= collection_check_boxes(:group, :lesson_ids, Lesson.all, :id, :title, include_hidden: false) %>
 
     <%= f.submit %>
 <% end %>

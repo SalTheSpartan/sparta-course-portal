@@ -1,26 +1,31 @@
-<h1>Courses#index</h1>
+<h1>Sparta Course Portal</h1>
 <p>Find me in app/views/courses/index.html.erb</p>
 
+<%= form_for @course, html: {multipart: true } do |f| %>
 
-<table>
-  <thead>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :duration %>
+    <%= f.text_field :duration %>
+</p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+  <thead class="mdl-data-table__cell--non-numeric">
     <td>Course Name</td>
     <td>Duration (Weeks)</td>
   </thead>
 
   <tbody>
-  <% @course.each do |course| %>
+  <% @courses.each do |course| %>
   <tr>
-    <td><p><%= course.name %></p></td><td><p><%= course.duration %></p></td>
+    <td class="mdl-data-table__cell--non-numeric"><p><%= course.name %></p></td><td><p><%= course.duration %></p></td>
   </tr>
   <% end %>
   </tbody>
 </table>
-
-
-
-<%= link_to "Create New Course" , new_course_path %>
-<p>
-<%= link_to "Groups" , groups_index_path %>
-<%= link_to "Syllabi" , syllabi_index_path %>
-</p>

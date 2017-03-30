@@ -1,14 +1,44 @@
-<h1>Syllabi#index</h1>
-<p>Find me in app/views/syllabi/index.html.erb</p>
-<%= link_to "Create New Lesson" , lessons_new_path %>
-<% @syllabi.each do |syllabus| %>
 
-<h2>Title: <%= syllabus.title %></h2><h3>Duration: <%= syllabus.duration %></h3>
+<p>Create New Syllabus</p>
 
-  <h3>Lessons</h3>
-  <% syllabus.lessons.each do |lesson| %>
-  <p><%= lesson.title %></p>
-  <% end %>
+<%= form_for @syllabus, url: syllabi_index_path, html: {multipart: true } do |f| %>
 
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
 
+  <p>
+    <%= f.label :duration %><br>
+    <%= f.text_field :duration %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>
+
+
+<%= link_to "Create New Lesson" , new_lesson_path %>
+
+<table>
+  <thead>
+    <td>Title:</td><td>Duration:</td><td>Lessons</td>
+  </thead>
+
+  <tbody>
+
+
+    <% @syllabi.each do |syllabus| %>
+
+  <tr>
+    <td><%= syllabus.title %></td><td><%= syllabus.duration %></td>
+    <td>
+    <% syllabus.lessons.each do |lesson| %>
+    <p><%= lesson.title %></p>
+    <% end %>
+    </td>
+ </tr>
+<% end %>
+  </tbody>
+</table>

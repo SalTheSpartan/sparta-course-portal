@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   def index
-    @course = Course.all
+    @courses = Course.all
+    @course = Course.new
   end
 
   def create

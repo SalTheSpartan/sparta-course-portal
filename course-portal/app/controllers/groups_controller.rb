@@ -7,6 +7,10 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def list
+    @groups = Group.all
+  end
+
   def create
 
     name = group_params[:name]
@@ -20,6 +24,11 @@ class GroupsController < ApplicationController
     redirect_to "/groups"
   end
 
+  def show
+    @group = Group.find(params[:id])
+    @lessons = Lesson.all
+  end
+
   def edit
     @group = Group.find(params[:id])
     @lessons = Lesson.all
@@ -28,11 +37,26 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
+    @group.lessons.destroy_all
+    lesson_ids = lesson_params[:lesson_ids]
+
+    lesson_ids.each do |lesson_id|
+        lesson_to_add = Lesson.find(lesson_id)
+        @group.lessons.push lesson_to_add
+    end
+
     render 'groups/edit'
+
   end
+
+
   private
     def group_params
       params.require(:group).permit(:name, :start_date, :end_date, :size, :course)
+    end
+  private
+    def lesson_params
+      params.require(:group).permit(:id, :title, :lesson_ids => [])
     end
 
 end

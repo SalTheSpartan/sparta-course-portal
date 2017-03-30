@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <td>Group Name</td>
+    <td>Start Date</td>
+    <td>End Date</td>
+    <td>Size</td>
+    <td>Course</td>
+    <td>Lessons</td>
+  </thead>
+
+  <tbody>
+  <% @groups.each do |group1| %>
+  <tr>
+    <td><p><%= group1.name %></p></td>
+    <td><p><%= group1.start_date %></p></td>
+    <td><p><%= group1.end_date %></p></td>
+    <td><p><%= group1.size %></p></td>
+    <td><p><%= group1.course.name %></p></td>
+    <td><p><%= link_to "View Lessons", group_path(group1) %></p></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>

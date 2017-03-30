@@ -1,0 +1,8 @@
+
+<%= @group.name %>
+
+
+<% @group.lessons.each do |lesson| %>
+  <p><%= lesson.title %></p>
+  <p><%= lesson.notes %></p>
+<%end%>

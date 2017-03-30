@@ -4,16 +4,37 @@
     <title>CoursePortal</title>
     <%= csrf_meta_tags %>
 
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <section class="login-info">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
+      <% if user_signed_in? %>
+      <%= current_user.email %>
+      <% end %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    </section>
     <nav>
-      <%= link_to "Courses" , courses_index_path %>
-      <%= link_to "Groups" , groups_index_path %>
+      <%= link_to "Courses" , courses_path %>
+      <%= link_to "Groups" , groups_path %>
       <%= link_to "Syllabi" , syllabi_index_path %>
     </nav>
+    <div class="wrapper">
+
     <%= yield %>
+
+    </div>
+
+
   </body>
 </html>
