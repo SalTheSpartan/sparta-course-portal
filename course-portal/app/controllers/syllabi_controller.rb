@@ -4,7 +4,7 @@ class SyllabiController < ApplicationController
   def index
     @syllabi = Syllabus.all
     @syllabus = Syllabus.new
-
+    @lesson = Lesson.new
   end
 
   def show

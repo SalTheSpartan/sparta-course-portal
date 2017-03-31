@@ -1,6 +1,37 @@
 <h1>Groups</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
 
+<h2>Create New Group</h2>
+
+<%= form_for @group, html: {multipart: true } do |f| %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :size%>
+    <%= f.number_field :size%>
+  </p>
+
+  <p>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %>
+
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+  </p>
+
+
+  <p>
+    <%= f.label :course%>
+    <%= f.collection_select :course, Course.all, :id, :name, prompt: true %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<h2>Groups List</h2>
 
 <table class="mdl-data-table mdl-js-data-table">
   <thead>
@@ -13,7 +44,7 @@
   </thead>
 
   <tbody>
-  <% @group.each do |group1| %>
+  <% @groups.each do |group1| %>
   <tr>
     <td><p><%= group1.name %></p></td>
     <td><p><%= group1.start_date %></p></td>
@@ -25,5 +56,3 @@
   <% end %>
   </tbody>
 </table>
-
-<%= link_to "Create New Group" , new_group_path %>

@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'simplemde-rails'
+#simple mde markdown editor
 gem 'material_icons'
 #add MDL framework gem
 gem 'material_design_lite-rails', '~> 1.3'

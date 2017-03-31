@@ -1,20 +1,26 @@
-<%= @group.name %>
 
+<h1>Hello</h1>
 
+<!-- contain the left and right div -->
+<div class="mdl-grid">
 
-<h3>Current lessons</h3>
-<% @group.lessons.each do |lesson| %>
-  <p><%= lesson.title %>
+    <!-- div -  left side of the edit page -->
+    <div class="mdl-cell mdl-cell--6-col">
+      <h2>Current lessons: <%= @group.name %></h2>
+      <% @group.lessons.each do |lesson| %>
+        <p><%= lesson.title %>
+      <% end %>
+    </div>
 
-<% end %>
+    <!-- div -  right side of the edit page -->
+    <div class="mdl-cell mdl-cell--6-col">
+      <h2>Available Lessons</h2>
+      <%= form_for @group, :html => {:multipart => true} do |f| %>
+          <p>Add or remove lessons using the checkboxes</p>
 
-<h3>Available Lessons</h3>
+          <%= collection_check_boxes(:group, :lesson_ids, Lesson.all, :id, :title, include_hidden: false) %>
 
-
-<%= form_for @group, :html => {:multipart => true} do |f| %>
-    <p>Select Lessons to add</p>
-
-    <%= collection_check_boxes(:group, :lesson_ids, Lesson.all, :id, :title, include_hidden: false) %>
-
-    <%= f.submit %>
-<% end %>
+          <%= f.submit %>
+      <% end %>
+    </div>
+</div>

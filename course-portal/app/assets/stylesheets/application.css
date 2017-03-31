@@ -45,9 +45,40 @@ background-color: #DDE9EB;
  }
  nav {
    display: inline-block;
-   position: absolute;
    bottom: 4px;
+   font-size: 24px;
+  height: 40px;
+  padding: 20px 10px  10px 60px;
+  color: blue !important;
+  text-align: center;
+
  }
+
+ nav a{
+   padding: 20px;
+   color: #D3D3D3;
+   font-weight: bold;
+ }
+
+ .navBar{
+   background-color: black;
+   text-align: center;
+ }
+
+thead th{
+   background-color: grey;
+   font-size: 30px !important;
+   text-align: left !important;
+ }
+
+ table td{
+   font-size: 19px;
+ }
+
+ .tbl-cust{
+   width: 100% !important;
+ }
+
 
  #pageHeader {
     position: absolute;
@@ -58,11 +89,21 @@ background-color: #DDE9EB;
     height: 100%;
  }
 
-.wrapper{
+#new-syllabus{
+
+
+ }
+ #new-lesson{
+  padding-left: 5%;
+ }
+
+.wrapper {
 border-top: grey 5px solid;
 margin: auto;
 width: 90%;
-padding-bottom: 10px;
+padding-bottom: 0px;
+margin-bottom: 100px;
+
 }
 section.login-info {
   float: right;
@@ -72,19 +113,27 @@ section.login-info {
 
 h1 {
   color: #34BEEF;
+  font-size: 30px !important;
+}
+
+h2 {
+  color: grey;
+  font-size: 20px !important;
 }
 
 footer {
   background-color: #0B8EC8;
   text-align: center;
   color: white;
-  position:absolute;
-  bottom:0;
-  width: 60%;
+  padding: 25px;
+  bottom:0 !important;
+  margin-bottom: 10px;
+
 }
 
 a:link {
-    color: white;
+    color: grey;
+    text-decoration: none;
 }
 
 /* mouse over link */

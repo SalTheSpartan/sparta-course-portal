@@ -23,7 +23,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new({title: title, syllabus: syllabus, notes: notes})
 
     @lesson.save
-    redirect_to "/syllabi/index"
+    redirect_to syllabi_index_url
   end
 
   private
