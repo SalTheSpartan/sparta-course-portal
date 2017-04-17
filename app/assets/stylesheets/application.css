@@ -1,0 +1,147 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require material
+
+ */
+
+ header {
+  padding-left: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: #0B8EC8;
+  position: relative;
+
+ }
+
+ .main-header{
+   display: inline-block;
+   padding-left: 2%;
+   font-family: Helvetica;
+   font-weight: 100;
+   font-size: 40px !important;
+   color: white;
+ }
+
+ body {
+
+   width: 60% !important;
+   margin: 0 auto !important;
+   -webkit-box-shadow: 0px 0px 43px 3px rgba(158,158,158,1);
+-moz-box-shadow: 0px 0px 43px 3px rgba(158,158,158,1);
+box-shadow: 0px 0px 43px 3px rgba(158,158,158,1);
+background-color: #DDE9EB;
+ }
+ nav {
+   display: inline-block;
+   bottom: 4px;
+   font-size: 24px;
+  height: 40px;
+  padding: 20px 10px  10px 60px;
+  color: blue !important;
+  text-align: center;
+
+ }
+
+ nav a{
+   padding: 20px;
+   color: #D3D3D3;
+   font-weight: bold;
+ }
+
+ .navBar{
+   background-color: black;
+   text-align: center;
+ }
+
+thead th{
+   background-color: grey;
+   font-size: 30px !important;
+   text-align: left !important;
+ }
+
+ table td{
+   font-size: 19px;
+ }
+
+ .tbl-cust{
+   width: 100% !important;
+ }
+
+
+ #pageHeader {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    right: 0;
+    text-align: right;
+    height: 100%;
+ }
+
+#new-syllabus{
+
+
+ }
+ #new-lesson{
+  padding-left: 5%;
+ }
+
+.wrapper {
+border-top: grey 5px solid;
+margin: auto;
+width: 90%;
+padding-bottom: 0px;
+margin-bottom: 100px;
+
+}
+section.login-info {
+  float: right;
+  margin-right: 2%;
+  color: #DDE9EB;
+}
+
+h1 {
+  color: #34BEEF;
+  font-size: 30px !important;
+}
+
+h2 {
+  color: grey;
+  font-size: 20px !important;
+}
+
+footer {
+  background-color: #0B8EC8;
+  text-align: center;
+  color: white;
+  padding: 25px;
+  bottom:0 !important;
+  margin-bottom: 10px;
+
+}
+
+a:link {
+    color: grey;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}

@@ -1,0 +1,37 @@
+<h1>Courses</h1>
+
+<h2>Add New Course</h2>
+<div class="left">
+  <%= form_for @course, html: {multipart: true } do |f| %>
+
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :duration %>
+      <%= f.text_field :duration %>
+
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>
+
+<div class="right">
+<h2>Course List</h2>
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp tbl-cust">
+  <thead class="mdl-data-table__cell--non-numeric">
+    <td>Course Name</td>
+    <td>Duration (Weeks)</td>
+    <td>Remove</td>
+
+  </thead>
+
+  <tbody>
+  <% @courses.each do |course| %>
+  <tr>
+    <td class="mdl-data-table__cell--non-numeric"><%= course.name %></td><td><%= course.duration %></td><td> <%= link_to "Delete" , course_path(course) , method: :delete %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

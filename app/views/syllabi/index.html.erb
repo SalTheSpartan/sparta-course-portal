@@ -1,0 +1,79 @@
+<h1>Syllabi</h1>
+
+
+<div id="new-syllabus">
+
+<h2>Create New Syllabus</h2>
+
+<%= form_for @syllabus, url: syllabi_index_path, html: {multipart: true } do |f| %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :duration %>
+    <%= f.text_field :duration %>
+
+    <%= f.submit %>
+  </p>
+<% end %>
+</div>
+
+
+<h2>Syllabus List</h2>
+
+<table class="mdl-data-table mdl-js-data-table tbl-cust">
+  <thead class="mdl-data-table__cell--non-numeric tblHeader">
+    <th>Title:</th><th>Duration:</th><th>Lessons</th>
+  </thead>
+
+  <tbody>
+
+
+    <% @syllabi.each do |syllabus| %>
+
+  <tr>
+    <td class="mdl-data-table__cell--non-numeric"><%= syllabus.title %></td><td class="mdl-data-table__cell--non-numeric"><%= syllabus.duration %></td>
+    <td class="mdl-data-table__cell--non-numeric">
+    <% syllabus.lessons.each do |lesson| %>
+    <h6><%= lesson.title %></h6>
+    <% end %>
+    </td>
+ </tr>
+<% end %>
+  </tbody>
+</table>
+
+<div id="new-lesson">
+  <!-- <%= link_to "Create New Lesson" , new_lesson_path %> -->
+  <h2>Create New Lesson</h2>
+  <%= form_for @lesson, html: {multipart: true } do |f| %>
+
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :syllabus%><br>
+      <%= f.collection_select :syllabus, Syllabus.all, :id, :title, prompt: true %>
+    </p>
+
+    <p>
+      <%= f.label :notes %><br>
+      <%= f.text_area :notes %>
+    </p>
+
+
+
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+
+
+  <script>
+    var simplemde = new SimpleMDE();
+  </script>
+</div>
